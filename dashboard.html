@@ -1,162 +1,264 @@
-<!doctype html>
-<html class="no-js h-100" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>HMS - Hospital Management System</title>
-    <meta name="description"
-        content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.min.css">
-    <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
+    <meta name="author" content="Pike Web Development - https://www.pikephp.com">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome CSS -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- BEGIN CSS for this page -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+    <!-- END CSS for this page -->
+
 </head>
 
-<body class="h-100">
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Main Sidebar -->
-            <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
-                <div class="main-navbar">
-                    <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
-                        <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
-                            <div class="d-table m-auto">
-                                <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;"
-                                    src="images/hms-logo.png" alt="Shards Dashboard">
-                                <span class="d-none d-md-inline ml-1">HMS</span>
-                            </div>
-                        </a>
-                        <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
-                            <i class="material-icons">&#xE5C4;</i>
-                        </a>
-                    </nav>
-                </div>
+<body class="adminbody">
 
-                <div class="nav-wrapper">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="dashboard.html">
-                                <i class="material-icons">dashboard</i>
-                                <span>Dashboard</span>
+    <div id="main">
+
+        <!-- top bar navigation -->
+        <div class="headerbar">
+
+            <!-- LOGO -->
+            <div class="headerbar-left">
+                <a href="home.html" class="logo"><img alt="Logo" src="assets/images/hms-logo.png" />
+                    <span>HMS</span></a>
+            </div>
+
+            <nav class="navbar-custom">
+
+                <ul class="list-inline float-right mb-0">
+                    <li class="list-inline-item dropdown notif">
+                        <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <img src="assets/images/avatars/admin.png" alt="Profile image" class="avatar-rounded">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="text-overflow"><small>Hello, Yosua</small> </h5>
+                            </div>
+
+                            <!-- item-->
+                            <a href="pro-profile.html" class="dropdown-item notify-item">
+                                <i class="fa fa-user"></i> <span>Profile</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="#" class="dropdown-item notify-item">
+                                <i class="fa fa-power-off"></i> <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <ul class="list-inline menu-left mb-0">
+                    <li class="float-left">
+                        <button class="button-menu-mobile open-left">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- End Navigation -->
+
+
+        <!-- Left Sidebar -->
+        <div class="left main-sidebar">
+
+            <div class="sidebar-inner leftscroll">
+
+                <div id="sidebar-menu">
+
+                    <ul>
+                        <li class="submenu">
+                            <a href="home.html"><i class="fa fa-fw fa-home"></i><span> Site Map </span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="patient.html">
-                                <i class="material-icons">accessibility</i>
-                                <span>Patient</span>
+
+                        <li class="submenu">
+                            <a class="active" href="dashboard.html"><i class="fa fa-fw fa-bars"></i><span> Dashboard
+                                </span> </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="patient.html"><i class="fa fa-wheelchair-alt"></i><span> Patient
+                                </span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="editprofile.html">
-                                <i class="material-icons">edit</i>
-                                <span>Edit Profile</span>
+
+                        <li class="submenu">
+                            <a href="partner.html"><i class="fa fa-group"></i><span> Partner Company
+                                </span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">
-                                <i class="material-icons">home</i>
-                                <span>Site Map</span>
+
+                        <li class="submenu">
+                            <a href="impatient.html"><i class="fa fa-hospital-o"></i><span> Impatient Rooms
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="medicine.html"><i class="fa fa-medkit"></i><span> Medicines
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="accountant.html"><i class="fa fa-dollar"></i><span> Accountants
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="editprofile.html"><i class="fa fa-edit"></i><span> Edit Profile
+                                </span>
                             </a>
                         </li>
                     </ul>
+
+                    <div class="clearfix"></div>
+
                 </div>
-            </aside>
-            <!-- End Main Sidebar -->
-            <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
-                <div class="main-navbar sticky-top bg-white d-flex justify-content-end">
-                    <!-- Main Navbar -->
-                    <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
-                        <ul class="navbar-nav border-left flex-row ">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#"
-                                    role="button" aria-haspopup="true" aria-expanded="false">
-                                    <img class="user-avatar rounded-circle mr-2" src="images/avatars/yos.jpg"
-                                        alt="User Avatar">
-                                    <span class="d-none d-md-inline-block">Yosua Andrew</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-small">
-                                    <a class="dropdown-item" href="user-profile-lite.html">
-                                        <i class="material-icons">&#xE7FD;</i> Profile</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item text-danger" href="#">
-                                        <i class="material-icons text-danger">&#xE879;</i> Logout </a>
-                                </div>
-                            </li>
-                        </ul>
-                        <nav class="nav">
-                            <a href="#"
-                                class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left"
-                                data-toggle="collapse" data-target=".header-navbar" aria-expanded="false"
-                                aria-controls="header-navbar">
-                                <i class="material-icons">&#xE5D2;</i>
-                            </a>
-                        </nav>
-                    </nav>
-                </div>
-                <!-- / .main-navbar -->
-                <div class="main-content-container container-fluid px-4">
-                    <!-- Page Header -->
-                    <div class="page-header row no-gutters py-4">
-                        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                            <span class="text-uppercase page-subtitle">Home/Dashboard</span>
-                            <h3 class="page-title">Dashboard</h3>
-                        </div>
-                    </div>
-                    <!-- End Page Header -->
-                    <!-- Small Stats Blocks -->
-                    <div class="row">
-                        <div class="col-lg col-md-6 col-sm-6 mb-4">
-                            <div class="stats-small stats-small--1 card card-small">
-                                <div class="card-body p-0 d-flex">
-                                    <div class="d-flex flex-column m-auto">
-                                        <div class="stats-small__data text-center">
-                                            <span class="stats-small__label text-uppercase">Hospital</span>
-                                            <h6 class="stats-small__value count my-3">3</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg col-md-6 col-sm-6 mb-4">
-                            <div class="stats-small stats-small--1 card card-small">
-                                <div class="card-body p-0 d-flex">
-                                    <div class="d-flex flex-column m-auto">
-                                        <div class="stats-small__data text-center">
-                                            <span class="stats-small__label text-uppercase">Admin</span>
-                                            <h6 class="stats-small__value count my-3">2</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Small Stats Blocks -->
-                </div>
-                <footer class="main-footer d-flex p-2 px-3 justify-content-center bg-white border-top">
-                    <span class="copyright ">Copyright © 2018 APSI</span>
-                </footer>
-            </main>
+
+                <div class="clearfix"></div>
+
+            </div>
+
         </div>
+        <!-- End Sidebar -->
+
+
+        <div class="content-page">
+
+            <!-- Start content -->
+            <div class="content">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="breadcrumb-holder">
+                                <h1 class="main-title float-left">Dashboard</h1>
+                                <ol class="breadcrumb float-right">
+                                    <li class="breadcrumb-item">Home</li>
+                                    <li class="breadcrumb-item active">Dashboard</li>
+                                </ol>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                            <div class="card-box noradius noborder bg-default">
+                                <i class="fa fa-male float-right text-white"></i>
+                                <h6 class="text-white text-uppercase m-b-20">Partner Company</h6>
+                                <h1 class="m-b-20 text-white counter">5</h1>
+                                <span class="text-white"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                            <div class="card-box noradius noborder bg-warning">
+                                <i class="fa fa-hospital-o float-right text-white"></i>
+                                <h6 class="text-white text-uppercase m-b-20">impatient rooms</h6>
+                                <h1 class="m-b-20 text-white counter">3</h1>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                            <div class="card-box noradius noborder bg-info">
+                                <i class="fa fa-wheelchair-alt float-right text-white"></i>
+                                <h6 class="text-white text-uppercase m-b-20">Patients</h6>
+                                <h1 class="m-b-20 text-white counter">10</h1>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                            <div class="card-box noradius noborder bg-danger">
+                                <i class="fa fa-medkit float-right text-white"></i>
+                                <h6 class="text-white text-uppercase m-b-20">Medicines</h6>
+                                <h1 class="m-b-20 text-white counter">58</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                            <div class="card-box noradius noborder bg-success">
+                                <i class="fa fa-dollar float-right text-white"></i>
+                                <h6 class="text-white text-uppercase m-b-20">Accountant</h6>
+                                <h1 class="m-b-20 text-white counter">5</h1>
+                                <span class="text-white"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- END container-fluid -->
+
+            </div>
+            <!-- END content -->
+
+        </div>
+        <!-- END content-page -->
+
+        <footer class="footer">
+            <span class="text-right">
+                Copyright <a target="_blank" href="#">Your Website</a>
+            </span>
+        </footer>
+
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-    <script src="scripts/extras.1.1.0.min.js"></script>
-    <script src="scripts/shards-dashboards.1.1.0.min.js"></script>
-    <script src="scripts/app/app-blog-overview.1.1.0.js"></script>
+    <!-- END main -->
+
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/fastclick.js"></script>
+    <script src="assets/js/jquery.blockUI.js"></script>
+    <script src="assets/js/jquery.nicescroll.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/pikeadmin.js"></script>
+
+    <!-- BEGIN Java Script for this page -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Counter-Up-->
+    <script src="assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
+    <!-- END Java Script for this page -->
+
 </body>
 
 </html>
