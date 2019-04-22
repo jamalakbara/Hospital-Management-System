@@ -44,21 +44,21 @@
                 <i class="material-icons">dashboard</i>
                 <span>Dashboard</span>
               </a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="patient.html">
                 <i class="material-icons">accessibility</i>
                 <span>Patient</span>
               </a>
             </li>
+            </li>
             <li class="nav-item">
-              <a class="nav-link" href="editprofile.html">
+              <a class="nav-link active" href="editprofile.html">
                 <i class="material-icons">edit</i>
                 <span>Edit Profile</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="index.html">
+              <a class="nav-link" href="index.html">
                 <i class="material-icons">home</i>
                 <span>Site Map</span>
               </a>
@@ -95,59 +95,72 @@
           </nav>
         </div>
         <!-- / .main-navbar -->
+        <!-- <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      <i class="fa fa-check mx-2"></i>
+      <strong>Success!</strong> Your profile has been updated! </div> -->
         <div class="main-content-container container-fluid px-4">
           <!-- Page Header -->
           <div class="page-header row no-gutters py-4">
             <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-              <span class="text-uppercase page-subtitle">Home/Site Map</span>
-              <h3 class="page-title">Site Map</h3>
+              <span class="text-uppercase page-subtitle">Home/Edit Profile</span>
+              <h3 class="page-title">Edit Profile</h3>
             </div>
           </div>
           <!-- End Page Header -->
-          <!-- Small Stats Blocks -->
+          <!-- Default Light Table -->
           <div class="row">
-            <a href="dashboard.html" class="col-lg col-md-6 col-sm-6 mb-4 btn">
-              <div class="stats-small stats-small--1 card card-small">
-                <div class="d-flex flex-column m-auto">
-                  <div class="stats-small__data text-center">
-                    <i class="material-icons mb-2">dashboard</i>
-                    <span class="stats-small__label text-uppercase">Dashboard</span>
-                  </div>
+            <div class="col-lg-4">
+              <div class="card card-small mb-4 pt-3">
+                <div class="card-header border-bottom text-center">
+                  <div class="mb-3 mx-auto">
+                    <img class="rounded-circle" src="images/avatars/yos.jpg" alt="User Avatar" width="110"> </div>
+                  <h4 class="mb-0">Yosua Andrew</h4>
+                  <span class="text-muted d-block mb-2">Admin</span>
                 </div>
               </div>
-            </a>
-            <a href="patient.html" class="col-lg col-md-6 col-sm-6 mb-4 btn">
-              <div class="stats-small stats-small--1 card card-small">
-                <div class="d-flex flex-column m-auto">
-                  <div class="stats-small__data text-center">
-                    <i class="material-icons mb-2">accessibility</i>
-                    <span class="stats-small__label text-uppercase">Patient</span>
-                  </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card card-small mb-4">
+                <div class="card-header border-bottom">
+                  <h6 class="m-0">Account Details</h6>
                 </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item p-3">
+                    <div class="row">
+                      <div class="col">
+                        <form>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="feFirstName">First Name</label>
+                              <input type="text" class="form-control" id="feFirstName" placeholder="First Name"
+                                value="Yosua"> </div>
+                            <div class="form-group col-md-6">
+                              <label for="feLastName">Last Name</label>
+                              <input type="text" class="form-control" id="feLastName" placeholder="Last Name"
+                                value="Andrew"> </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="feEmailAddress">Email</label>
+                              <input type="email" class="form-control" id="feEmailAddress" placeholder="Email"
+                                value="marutotop@gmail.com"> </div>
+                            <div class="form-group col-md-6">
+                              <label for="fePassword">Password</label>
+                              <input type="password" class="form-control" id="fePassword" placeholder="Password"> </div>
+                          </div>
+                          <button type="submit" class="btn btn-accent">Edit</button>
+                        </form>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
-            </a>
-            <a href="" class="col-lg col-md-6 col-sm-6 mb-4 btn">
-              <div class="stats-small stats-small--1 card card-small">
-                <div class="d-flex flex-column m-auto">
-                  <div class="stats-small__data text-center">
-                    <i class="material-icons mb-2">group</i>
-                    <span class="stats-small__label text-uppercase">Partners Company</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a href="editprofile.html" class="col-lg col-md-6 col-sm-6 mb-4 btn">
-              <div class="stats-small stats-small--1 card card-small">
-                <div class="d-flex flex-column m-auto">
-                  <div class="stats-small__data text-center">
-                    <i class="material-icons mb-2">edit</i>
-                    <span class="stats-small__label text-uppercase">Edit Profil</span>
-                  </div>
-                </div>
-              </div>
-            </a>
+            </div>
           </div>
-          <!-- End Small Stats Blocks -->
+          <!-- End Default Light Table -->
         </div>
         <footer class="main-footer d-flex p-2 px-3 justify-content-center bg-white border-top">
           <span class="copyright ">Copyright © 2018 APSI</span>
@@ -168,7 +181,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
   <script src="scripts/extras.1.1.0.min.js"></script>
   <script src="scripts/shards-dashboards.1.1.0.min.js"></script>
-  <script src="scripts/app/app-blog-overview.1.1.0.js"></script>
 </body>
 
 </html>
