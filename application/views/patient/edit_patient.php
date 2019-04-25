@@ -32,11 +32,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Add New Patient</h1>
+                                <h1 class="main-title float-left">Edit Patient</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
                                     <li class="breadcrumb-item">Patient</li>
-                                    <li class="breadcrumb-item active">Add New Patient</li>
+                                    <li class="breadcrumb-item active">Edit Patient</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -44,21 +44,30 @@
                     </div>
                     <!-- end row -->
 
+                    <?php 
+                        if($this->session->flashdata('success')){
+                            $this->load->view('alert_success');
+                        }
+                        if($this->session->flashdata('fail')){
+                            $this->load->view('alert_fail');
+                        }
+                    ?>
+
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3">
                                 <div class="card-header">
-                                    <h3><i class="fa fa-check-square-o"></i> Add New</h3>
+                                    <h3><i class="fa fa-check-square-o"></i> Edit</h3>
                                 </div>
 
                                 <div class="card-body">
 
-                                    <form autocomplete="off" action="<?= base_url("patient/simpan")?>" method="post">
+                                    <form autocomplete="off" action="<?= base_url("patient/edit/".$patient[0]["id_pasien"])?>" method="post">
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
                                                 <label for="id">Patient ID</label>
-                                                <input type="text" class="form-control" id="id" placeholder="" value="<?= $id_pasien?>"
+                                                <input type="text" class="form-control" id="id" placeholder="" value="<?= $patient[0]["id_pasien"]?>"
                                                     autocomplete="off" readonly name="id">
                                             </div>
                                         </div>
@@ -66,13 +75,13 @@
                                             <div class="form-group col-md-6">
                                                 <label for="fName">First Name</label>
                                                 <input type="text" class="form-control" id="fName"
-                                                    placeholder="First Name" autocomplete="off" name="fName">
+                                                    placeholder="First Name" autocomplete="off" name="fName" value="<?= $patient[0]["first_name"]?>">
                                                 <?php echo form_error('fName'); ?>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="lName">Last Name</label>
                                                 <input type="text" class="form-control" id="lName"
-                                                    placeholder="Last Name" autocomplete="off" name="lName">
+                                                    placeholder="Last Name" autocomplete="off" name="lName" value="<?= $patient[0]["last_name"]?>">
                                                 <?php echo form_error('lName'); ?>
                                             </div>
                                         </div>
@@ -80,9 +89,18 @@
                                             <div class="form-group col-md-4">
                                                 <label for="gender">Gender</label>
                                                 <select id="gender" class="form-control" name="gender">
-                                                    <option value="">-- Select Gender --</option>
-                                                    <option value="Male">Male</option>
-                                                    <option value="Female">Female</option>
+                                                    <?php
+                                                        if($patient[0]["gender"] == 'Male'){?>
+                                                            <option value="">-- Select Gender --</option>
+                                                            <option selected value="Male">Male</option>
+                                                            <option value="Female">Female</option>
+
+                                                        <?php }else{?>
+                                                            <option value="">-- Select Gender --</option>
+                                                            <option value="Male">Male</option>
+                                                            <option selected value="Female">Female</option>
+                                                        <?php }?>
+                                                    ?>
                                                 </select>
                                                 <?php echo form_error('gender'); ?>
                                             </div>
@@ -90,19 +108,19 @@
                                                 <label for="blood">Blood Group</label>
                                                 <select id="blood" class="form-control" name="blood">
                                                     <option value="">-- Select Blood Group --</option>
-                                                    <option value="A+">A+</option>
-                                                    <option value="A-">A-</option>
-                                                    <option value="B+">B+</option>
-                                                    <option value="B-">B-</option>
-                                                    <option value="AB+">AB+</option>
-                                                    <option value="AB-">AB-</option>
-                                                    <option value="O+">O+</option>
-                                                    <option value="O-">O-</option>
+                                                    <option value="A+" <?php if($patient[0]["blood_group"]=='A+'){echo 'selected';}?>>A+</option>
+                                                    <option value="A-" <?php if($patient[0]["blood_group"]=='A-'){echo 'selected';}?>>A-</option>
+                                                    <option value="B+" <?php if($patient[0]["blood_group"]=='B+'){echo 'selected';}?>>B+</option>
+                                                    <option value="B-" <?php if($patient[0]["blood_group"]=='B-'){echo 'selected';}?>>B-</option>
+                                                    <option value="AB+" <?php if($patient[0]["blood_group"]=='AB+'){echo 'selected';}?>>AB+</option>
+                                                    <option value="AB-" <?php if($patient[0]["blood_group"]=='AB-'){echo 'selected';}?>>AB-</option>
+                                                    <option value="O+" <?php if($patient[0]["blood_group"]=='O+'){echo 'selected';}?>>O+</option>
+                                                    <option value="O-" <?php if($patient[0]["blood_group"]=='O-'){echo 'selected';}?>>O-</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="birth">Birth Date</label>
-                                                <input type="text" class="form-control" id="birth" name="birth" />
+                                                <input type="text" class="form-control" id="birth" name="birth" value="<?= $patient[0]["birth_date"]?>"/>
                                                 <?php echo form_error('birth'); ?>
                                                 <script>
                                                     $(function () {
@@ -118,17 +136,17 @@
                                             <div class="form-group col-md-4">
                                                 <label for="phone">Phone</label>
                                                 <input type="text" class="form-control" id="phone" placeholder="Phone"
-                                                    autocomplete="off" name="phone">
+                                                    autocomplete="off" name="phone" value="<?= $patient[0]["phone"]?>">
                                                 <?php echo form_error('phone'); ?>
                                             </div>
                                             <div class="form-group col-md-8">
                                                 <label for="addr">Address</label>
                                                 <input type="text" class="form-control" id="addr" placeholder=""
-                                                    autocomplete="off" name="address">
+                                                value="<?= $patient[0]["address"]?>" autocomplete="off" name="address" >
                                                 <?php echo form_error('address'); ?>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Add</button>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
                                         <a href="<?= base_url("patient")?>" class="btn btn-danger">Cancel</a>
                                     </form>
 

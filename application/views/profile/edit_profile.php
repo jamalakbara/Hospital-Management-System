@@ -73,7 +73,14 @@
             </div>
           </div>
           <!-- end row -->
-
+          <?php 
+              if($this->session->flashdata('success')){
+                  $this->load->view('alert_success');
+              }
+              if($this->session->flashdata('fail')){
+                  $this->load->view('alert_fail');
+              }
+          ?>
 
           <div class="row">
 
@@ -82,25 +89,29 @@
 
                 <div class="card-body">
 
-                  <form action="#" data-parsley-validate novalidate>
+                  <form action="<?= base_url("profile/edit")?>" method="post" data-parsley-validate novalidate>
                     <div class="form-group">
                       <label for="fName">First Name<span class="text-danger">*</span></label>
                       <input type="text" name="fName" data-parsley-trigger="change" required class="form-control"
-                        id="fName" value="Yosua">
+                        id="fName" value="<?= $user[0]["first_name"]?>">
+                        <?php echo form_error('fName'); ?>
                     </div>
                     <div class="form-group">
                       <label for="lName">Last Name<span class="text-danger">*</span></label>
                       <input type="text" name="lName" data-parsley-trigger="change" required class="form-control"
-                        id="lName" value="Andrew">
+                        id="lName" value="<?= $user[0]["last_name"]?>">
+                      <?php echo form_error('lName'); ?>
                     </div>
                     <div class="form-group">
                       <label for="emailAddress">Email<span class="text-danger">*</span></label>
-                      <input type="email" name="email" data-parsley-trigger="change" required class="form-control"
-                        id="emailAddress" value="a@a.com">
+                      <input type="email" name="email" data-parsley-trigger="change" required readonly class="form-control"
+                        id="emailAddress" value="<?= $user[0]["email"]?>">
+                      <?php echo form_error('email'); ?>
                     </div>
                     <div class="form-group">
                       <label for="pass1">Password<span class="text-danger">*</span></label>
-                      <input id="pass1" type="password" placeholder="Password" required class="form-control">
+                      <input name="pass" id="pass1" type="password" placeholder="Password" required class="form-control" value="<?= $user[0]["password"]?>">
+                      <?php echo form_error('passwird'); ?>
                     </div>
 
                     <div class="form-group text-right m-b-0">
@@ -119,8 +130,8 @@
               <div class="card mb-3">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
                   <img src="<?= base_url("")?>assets/images/avatars/admin.jpg" alt="">
-                  <h3>Yosua Andrew</h3>
-                  <h5 class="text-secondary">Admin</h5>
+                  <h3><?= $user[0]["first_name"].' '.$user[0]['last_name']?></h3>
+                  <h5 class="text-secondary text-capitalize"><?= $user[0]["role"]?></h5>
                 </div>
               </div>
             </div>

@@ -36,6 +36,14 @@
                         </div>
                     </div>
                     <!-- end row -->
+                    <?php 
+                        if($this->session->flashdata('success')){
+                            $this->load->view('alert_success');
+                        }
+                        if($this->session->flashdata('fail')){
+                            $this->load->view('alert_fail');
+                        }
+                    ?>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3">
@@ -61,15 +69,22 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php foreach($room as $data){?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>ICU Room</td>
-                                                    <td class="text-center"><a href=""><i class="fa fa-check"></i><i class="fa fa-ban"></i></a></td>
-                                                    <td class="text-center"><a href=""><i class="fa fa-edit"></i></a>
+                                                    <td><?= $data["room_no"]?></td>
+                                                    <td><?= $data["room_category"]?></td>
+                                                    <?php if($data["status"] == 'active'){
+                                                        echo '<td class="text-center"><a href=""><i class="fa fa-check"></i></i></a></td>';
+                                                    }else{
+                                                        echo '<td class="text-center"><a href=""><i class="fa fa-ban"></i></i></a></td>';
+                                                    }?>
+                                                    
+                                                    <td class="text-center"><a href="<?= base_url("room/editroom/".$data["room_no"])?>"><i class="fa fa-edit"></i></a>
                                                     </td>
-                                                    <td class="text-center"><a href=""><i class="fa fa-trash-o"></i></a>
+                                                    <td class="text-center"><a href="<?= base_url("room/delete/".$data["room_no"])?>"><i class="fa fa-trash-o"></i></a>
                                                     </td>
                                                 </tr>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>

@@ -31,11 +31,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Add New Room</h1>
+                                <h1 class="main-title float-left">Edit Medicine</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
-                                    <li class="breadcrumb-item">Impatient Rooms</li>
-                                    <li class="breadcrumb-item active">Add New Room</li>
+                                    <li class="breadcrumb-item">Medicines</li>
+                                    <li class="breadcrumb-item active">Edit Medicines</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -48,30 +48,37 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3 ">
                                 <div class="card-header">
-                                    <h3><i class="fa fa-check-square-o"></i> Add New</h3>
+                                    <h3><i class="fa fa-check-square-o"></i> Edit</h3>
                                 </div>
 
                                 <div class="card-body">
 
-                                    <form autocomplete="off" action="<?= base_url("room/simpan")?>" method="post">
+                                    <form autocomplete="off" action="<?= base_url("medicine/edit/".$medicine[0]["medicine_id"])?>" method="post">
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label for="rCat">Room Category</label>
-                                                <select name="roomCategory" id="rCat" class="form-control">
+                                                <label for="rCat">Medicines Category</label>
+                                                <select name="medCategory" id="rCat" class="form-control">
                                                     <option value="">-- Select Category --</option>
-                                                    <option value="ICU Room">ICU Room</option>
-                                                    <option value="VIP Room">VIP Room</option>
-                                                    <option value="VVIP Room">VVIP Room</option>
+                                                    <option <?php if($medicine[0]["medicine_category"] == "Severe Pain"):?>selected<?php endif?> value="Severe Pain">Severe Pain</option>
+                                                    <option <?php if($medicine[0]["medicine_category"] == "Anxiety"):?>selected<?php endif?> value="Anxiety">Anxiety</option>
+                                                    <option <?php if($medicine[0]["medicine_category"] == "ColdS"):?>selected<?php endif?> value="ColdS">ColdS</option>
+                                                    <option <?php if($medicine[0]["medicine_category"] == "Depression"):?>selected<?php endif?> value="Depression">Depression</option>
+                                                    <option <?php if($medicine[0]["medicine_category"] == "ENTS"):?>selected<?php endif?> value="ENTS">ENTS</option>
+                                                    <option <?php if($medicine[0]["medicine_category"] == "Fever"):?>selected<?php endif?> value="Fever">Fever</option>
+                                                    <option <?php if($medicine[0]["medicine_category"] == "High BP"):?>selected<?php endif?> value="High BP">High BP</option>
+                                                    <option <?php if($medicine[0]["medicine_category"] == "Infection"):?>selected<?php endif?> value="Infection">Infection</option>
+                                                    <option <?php if($medicine[0]["medicine_category"] == "Nerve Pain"):?>selected<?php endif?> value="Nerve Pain">Nerve Pain</option>
+                                                    <option <?php if($medicine[0]["medicine_category"] == "Type 2 Diabeties"):?>selected<?php endif?> value="Type 2 Diabeties">Type 2 Diabeties</option>
                                                 </select>
-                                                <?php echo form_error('roomCategory'); ?>
+                                                <?php echo form_error('medCategory'); ?>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label for="No">Room No.</label>
-                                                <input type="text" class="form-control" id="No" placeholder="Room No."
-                                                    autocomplete="off" name="roomNo">
-                                                    <?php echo form_error('roomNo'); ?>
+                                                <label for="medName">Medicine Name</label>
+                                                <input type="text" class="form-control" id="medName" placeholder="Medicine Name"
+                                                    autocomplete="off" name="medName" value="<?= $medicine[0]["medicine_name"]?>">
+                                                <?php echo form_error('medName'); ?>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -80,21 +87,21 @@
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="active" checked>
+                                                            id="gridRadios1" <?php if($medicine[0]["status"] == "active"):?>selected<?php endif?> value="active" checked>
                                                         Active
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="Inactive">
+                                                            id="gridRadios1" <?php if($medicine[0]["status"] == "inactive"):?>selected<?php endif?> value="inactive">
                                                         Inactive
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Add</button>
-                                        <a href="<?= base_url("room")?>" class="btn btn-danger">Cancel</a>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <a href="<?= base_url("medicine")?>" class="btn btn-danger">Cancel</a>
                                     </form>
 
                                 </div>

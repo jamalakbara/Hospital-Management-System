@@ -53,12 +53,12 @@
 
                                 <div class="card-body">
 
-                                    <form autocomplete="off" action="#">
+                                    <form autocomplete="off" action="<?= base_url("medicine/simpan")?>" method="post">
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="rCat">Medicines Category</label>
-                                                <select name="" id="rCat" class="form-control">
-                                                    <option value="#">-- Select Category --</option>
+                                                <select name="medCategory" id="rCat" class="form-control">
+                                                    <option value="">-- Select Category --</option>
                                                     <option value="Severe Pain">Severe Pain</option>
                                                     <option value="Anxiety">Anxiety</option>
                                                     <option value="ColdS">ColdS</option>
@@ -70,13 +70,15 @@
                                                     <option value="Nerve Pain">Nerve Pain</option>
                                                     <option value="Type 2 Diabeties">Type 2 Diabeties</option>
                                                 </select>
+                                                <?php echo form_error('medCategory'); ?>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="medName">Medicine Name</label>
                                                 <input type="text" class="form-control" id="medName" placeholder="Medicine Name"
-                                                    autocomplete="off">
+                                                    autocomplete="off" name="medName">
+                                                <?php echo form_error('medName'); ?>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -99,7 +101,7 @@
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Add</button>
-                                        <a href="medicine.html" class="btn btn-danger">Cancel</a>
+                                        <a href="<?= base_url("medicine")?>" class="btn btn-danger">Cancel</a>
                                     </form>
 
                                 </div>

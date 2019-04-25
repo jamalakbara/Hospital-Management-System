@@ -9,6 +9,7 @@
 
             <div id="sidebar-menu">
                 <div class="d-none" id="title"><?= $title?></div>
+                <div class="d-none" id="subtitle"><?= $subtitle?></div>
                 
                 <ul>
                     <li class="submenu">
@@ -29,9 +30,12 @@
                     </li>
 
                     <li class="submenu">
-                        <a href="<?= base_url("partner")?>" id="partner"><i class="fa fa-group"></i><span> Partner Company
-                            </span>
-                        </a>
+						<a href="#" id="partner"><i class="fa fa-fw fa-group"></i> <span> Partner Company </span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li id="option"><a href="<?= base_url("partner/partneroption")?>">Partner Options</a></li>
+								<li id="payment"><a href="<?= base_url("partner/payment")?>">Payment Category</a></li>
+								<li id="allot"><a href="<?= base_url("partner/allotment")?>">Partner Allotment</a></li>
+                            </ul>
                     </li>
 
                     <li class="submenu">

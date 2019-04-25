@@ -26,7 +26,7 @@
 
             <!-- LOGO -->
             <div class="headerbar-left">
-                <a href="home.html" class="logo"><img alt="Logo" src="<?= base_url("assets/images/hms-logo.png")?>" />
+                <a href="<?= base_url("home")?>" class="logo"><img alt="Logo" src="<?= base_url("assets/images/hms-logo.png")?>" />
                     <span>HMS</span></a>
             </div>
 
@@ -41,7 +41,7 @@
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->
                             <div class="dropdown-item noti-title">
-                                <h5 class="text-overflow"><small>Hello, Yosua</small> </h5>
+                                <h5 class="text-overflow"><small>Hi, <?= $user[0]["last_name"]?></small> </h5>
                             </div>
 
                             <!-- item-->
@@ -50,7 +50,7 @@
                             </a>
 
                             <!-- item-->
-                            <a href="#" class="dropdown-item notify-item">
+                            <a href="<?= base_url("logout")?>" class="dropdown-item notify-item">
                                 <i class="fa fa-power-off"></i> <span>Logout</span>
                             </a>
                         </div>

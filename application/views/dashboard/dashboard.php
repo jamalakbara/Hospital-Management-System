@@ -42,7 +42,7 @@
                             <div class="card-box noradius noborder bg-warning">
                                 <i class="fa fa-hospital-o float-right text-white"></i>
                                 <h6 class="text-white text-uppercase m-b-20">impatient rooms</h6>
-                                <h1 class="m-b-20 text-white counter">3</h1>
+                                <h1 class="m-b-20 text-white counter"><?= $jum_room?></h1>
                             </div>
                         </div>
 
@@ -50,7 +50,7 @@
                             <div class="card-box noradius noborder bg-info">
                                 <i class="fa fa-wheelchair-alt float-right text-white"></i>
                                 <h6 class="text-white text-uppercase m-b-20">Patients</h6>
-                                <h1 class="m-b-20 text-white counter">10</h1>
+                                <h1 class="m-b-20 text-white counter"><?= $jum_pasien?></h1>
                             </div>
                         </div>
 
@@ -58,7 +58,7 @@
                             <div class="card-box noradius noborder bg-danger">
                                 <i class="fa fa-medkit float-right text-white"></i>
                                 <h6 class="text-white text-uppercase m-b-20">Medicines</h6>
-                                <h1 class="m-b-20 text-white counter">58</h1>
+                                <h1 class="m-b-20 text-white counter"><?= $jum_medicine?></h1>
                             </div>
                         </div>
                     </div>

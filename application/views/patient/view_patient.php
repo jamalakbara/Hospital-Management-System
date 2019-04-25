@@ -11,16 +11,16 @@
     <!-- BEGIN CSS for this page -->
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+    <link href="<?= base_url("assets/css/style.css")?>" rel="stylesheet" type="text/css" />		
     <!-- END CSS for this page -->
 
 </head>
 
 <body class="adminbody">
         <div class="content-page">
-
             <!-- Start content -->
             <div class="content">
-
+                
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-12">
@@ -35,6 +35,15 @@
                         </div>
                     </div>
                     <!-- end row -->
+                    
+                    <?php 
+                        if($this->session->flashdata('success')){
+                            $this->load->view('alert_success');
+                        }
+                        if($this->session->flashdata('fail')){
+                            $this->load->view('alert_fail');
+                        }
+                    ?>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3">
@@ -42,9 +51,6 @@
                                     <a href="<?= base_url("patient/addnew")?>" class="btn btn-primary btn-sm" role="button"><i
                                             class="fa fa-fw fa fa-plus"></i>
                                         Add New</a>
-                                    <!-- <a href="<?php echo site_url('');  ?>" class="btn btn-success btn-sm"
-                                        role="button"><i class="fa fa-fw fa fa-print"></i> Cetak Rincian
-                                        Pembayaran</a></a> -->
                                 </div>
 
                                 <div class="card-body">
@@ -54,23 +60,26 @@
                                                 <tr>
                                                     <th>Patient ID</th>
                                                     <th>Name</th>
-                                                    <th>E-mail</th>
                                                     <th>Phone</th>
+                                                    <th>Detail</th>
                                                     <th>Edit</th>
                                                     <th>Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php foreach($pasien as $data){?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Yosua Andrew</td>
-                                                    <td>a@2.com</td>
-                                                    <td>12345</td>
-                                                    <td class="text-center"><a href=""><i class="fa fa-edit"></i></a>
+                                                    <td><?= $data["id_pasien"]?></td>
+                                                    <td><?= $data["first_name"]." ".$data["last_name"]?></td>
+                                                    <td><?= $data["phone"]?></td>
+                                                    <td class="text-center"><a href="<?= base_url("patient/detail/".$data["id_pasien"])?>"><i class="fa fa-bars"></i></a>
                                                     </td>
-                                                    <td class="text-center"><a href=""><i class="fa fa-trash-o"></i></a>
+                                                    <td class="text-center"><a href="<?= base_url("patient/editprofile/".$data["id_pasien"])?>"><i class="fa fa-edit"></i></a>
+                                                    </td>
+                                                    <td class="text-center"><a href="<?= base_url("patient/delete/".$data["id_pasien"])?>"><i class="fa fa-trash-o"></i></a>
                                                     </td>
                                                 </tr>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -99,6 +108,8 @@
     <script src="<?= base_url("assets/js/fastclick.js")?>"></script>
     <script src="<?= base_url("assets/js/jquery.blockUI.js")?>"></script>
     <script src="<?= base_url("assets/js/jquery.nicescroll.js")?>"></script>
+    <script src="<?= base_url("assets/js/jquery.scrollTo.min.js")?>"></script>
+    <script src="<?= base_url("assets/plugins/switchery/switchery.min.js")?>"></script>
 
     <!-- App js -->
     <script src="<?= base_url("assets/js/pikeadmin.js")?>"></script>

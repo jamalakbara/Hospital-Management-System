@@ -27,11 +27,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Partner Option</h1>
+                                <h1 class="main-title float-left">Payment Categories</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
                                     <li class="breadcrumb-item">Partner Company</li>
-                                    <li class="breadcrumb-item active">Partner Option</li>
+                                    <li class="breadcrumb-item active">Payment Categories</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -52,7 +52,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3">
                                 <div class="card-header">
-                                    <a href="<?= base_url("partner/addnew")?>" class="btn btn-primary btn-sm" role="button"><i
+                                    <a href="<?= base_url("partner/addnewpayment")?>" class="btn btn-primary btn-sm" role="button"><i
                                             class="fa fa-fw fa fa-plus"></i>
                                         Add New</a>
                                 </div>
@@ -62,7 +62,6 @@
                                         <table id="example1" class="table table-bordered table-hover display">
                                             <thead>
                                                 <tr>
-                                                    <th>Partner Company</th>
                                                     <th>Payment Category</th>
                                                     <th>Status</th>
                                                     <th>Edit</th>
@@ -70,9 +69,8 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach($option as $data){?>
+                                                <?php foreach($payment as $data){?>
                                                 <tr>
-                                                    <td><?= $data["partner_company"]?></td>
                                                     <td><?= $data["payment_category"]?></td>
                                                     <?php if($data["status"] == "active"){
                                                         echo '<td class="text-center"><a href=""><i class="fa fa-check"></i></a></td>';

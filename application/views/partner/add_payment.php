@@ -31,11 +31,12 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Add New Room</h1>
+                                <h1 class="main-title float-left">Add New Payment Categoies</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
-                                    <li class="breadcrumb-item">Impatient Rooms</li>
-                                    <li class="breadcrumb-item active">Add New Room</li>
+                                    <li class="breadcrumb-item">Partner Company</li>
+                                    <li class="breadcrumb-item">Payment Categoies</li>
+                                    <li class="breadcrumb-item active">Add New Payment Categoies</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -45,7 +46,7 @@
 
 
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-6-6">
                             <div class="card mb-3 ">
                                 <div class="card-header">
                                     <h3><i class="fa fa-check-square-o"></i> Add New</h3>
@@ -53,25 +54,13 @@
 
                                 <div class="card-body">
 
-                                    <form autocomplete="off" action="<?= base_url("room/simpan")?>" method="post">
+                                    <form autocomplete="off" action="<?= base_url("partner/simpanpayment")?>" method="post">
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label for="rCat">Room Category</label>
-                                                <select name="roomCategory" id="rCat" class="form-control">
-                                                    <option value="">-- Select Category --</option>
-                                                    <option value="ICU Room">ICU Room</option>
-                                                    <option value="VIP Room">VIP Room</option>
-                                                    <option value="VVIP Room">VVIP Room</option>
-                                                </select>
-                                                <?php echo form_error('roomCategory'); ?>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-12">
-                                                <label for="No">Room No.</label>
-                                                <input type="text" class="form-control" id="No" placeholder="Room No."
-                                                    autocomplete="off" name="roomNo">
-                                                    <?php echo form_error('roomNo'); ?>
+                                                <label for="payment">Payment Category</label>
+                                                <input type="text" class="form-control" id="payment" placeholder="Payment Category"
+                                                    autocomplete="off" name="payment">
+                                                <?php echo form_error('payment'); ?>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -94,7 +83,7 @@
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Add</button>
-                                        <a href="<?= base_url("room")?>" class="btn btn-danger">Cancel</a>
+                                        <a href="<?= base_url("partner/partneroption")?>" class="btn btn-danger">Cancel</a>
                                     </form>
 
                                 </div>

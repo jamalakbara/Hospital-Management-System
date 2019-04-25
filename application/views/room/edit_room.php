@@ -31,11 +31,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Add New Room</h1>
+                                <h1 class="main-title float-left">Edit Room</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
                                     <li class="breadcrumb-item">Impatient Rooms</li>
-                                    <li class="breadcrumb-item active">Add New Room</li>
+                                    <li class="breadcrumb-item active">Edit Room</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -43,25 +43,33 @@
                     </div>
                     <!-- end row -->
 
+                    <?php 
+                        if($this->session->flashdata('success')){
+                            $this->load->view('alert_success');
+                        }
+                        if($this->session->flashdata('fail')){
+                            $this->load->view('alert_fail');
+                        }
+                    ?>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3 ">
                                 <div class="card-header">
-                                    <h3><i class="fa fa-check-square-o"></i> Add New</h3>
+                                    <h3><i class="fa fa-check-square-o"></i> Edit</h3>
                                 </div>
 
                                 <div class="card-body">
 
-                                    <form autocomplete="off" action="<?= base_url("room/simpan")?>" method="post">
+                                    <form autocomplete="off" action="<?= base_url("room/edit/".$room[0]["room_no"])?>" method="post">
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="rCat">Room Category</label>
                                                 <select name="roomCategory" id="rCat" class="form-control">
                                                     <option value="">-- Select Category --</option>
-                                                    <option value="ICU Room">ICU Room</option>
-                                                    <option value="VIP Room">VIP Room</option>
-                                                    <option value="VVIP Room">VVIP Room</option>
+                                                    <option <?php if($room[0]["room_category"] == 'ICU Room'):?>selected<?php endif?> value="ICU Room">ICU Room</option>
+                                                    <option <?php if($room[0]["room_category"] == 'VIP Room'):?>selected<?php endif?> value="VIP Room">VIP Room</option>
+                                                    <option <?php if($room[0]["room_category"] == 'VVIP Room'):?>selected<?php endif?> value="VVIP Room">VVIP Room</option>
                                                 </select>
                                                 <?php echo form_error('roomCategory'); ?>
                                             </div>
@@ -70,7 +78,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="No">Room No.</label>
                                                 <input type="text" class="form-control" id="No" placeholder="Room No."
-                                                    autocomplete="off" name="roomNo">
+                                                    autocomplete="off" name="roomNo" value="<?= $room[0]["room_no"]?>" readonly>
                                                     <?php echo form_error('roomNo'); ?>
                                             </div>
                                         </div>
@@ -80,20 +88,20 @@
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="active" checked>
+                                                            id="gridRadios1" value="active" <?php if($room[0]["status"] == 'active'):?>checked<?php endif?>>
                                                         Active
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="Inactive">
+                                                            id="gridRadios1" value="inactive" <?php if($room[0]["status"] == 'inactive'):?>checked<?php endif?>>
                                                         Inactive
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Add</button>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
                                         <a href="<?= base_url("room")?>" class="btn btn-danger">Cancel</a>
                                     </form>
 
