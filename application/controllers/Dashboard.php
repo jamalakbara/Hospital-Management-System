@@ -10,6 +10,8 @@ class Dashboard extends CI_Controller {
                         $data["jum_pasien"] = $this->m_dashboard->getJumlahPasien();
                         $data["jum_room"] = $this->m_dashboard->getJumlahRoom();
                         $data["jum_medicine"] = $this->m_dashboard->getJumlahMedicine();
+                        $data["jum_partner"] = $this->m_dashboard->getJumlahPartner();
+                        $data["jum_acc"] = $this->m_dashboard->getJumlahAccountant();
                 
                         $this->load->view('navigation', $data);
                         $this->load->view('side_bar');

@@ -31,12 +31,12 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Add New Payment Categoies</h1>
+                                <h1 class="main-title float-left">Edit Partner Option</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
                                     <li class="breadcrumb-item">Partner Company</li>
-                                    <li class="breadcrumb-item">Payment Categoies</li>
-                                    <li class="breadcrumb-item active">Add New Payment Categoies</li>
+                                    <li class="breadcrumb-item">Partner Option</li>
+                                    <li class="breadcrumb-item active">Edit Partner Option</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -46,21 +46,40 @@
 
 
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-6-6">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3 ">
                                 <div class="card-header">
-                                    <h3><i class="fa fa-check-square-o"></i> Add New</h3>
+                                    <h3><i class="fa fa-check-square-o"></i> Edit</h3>
                                 </div>
 
                                 <div class="card-body">
 
-                                    <form autocomplete="off" action="<?= base_url("partner/simpanpayment")?>" method="post">
+                                    <form autocomplete="off" action="<?= base_url("partner/updateoption/".$option[0]["partner_id"])?>" method="post">
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label for="payment">Payment Category</label>
-                                                <input type="text" class="form-control" id="payment" placeholder="Payment Category"
-                                                    autocomplete="off" name="payment">
-                                                <?php echo form_error('payment'); ?>
+                                                <label for="comp">Partner Company</label>
+                                                <input type="text" class="form-control" id="comp" placeholder="Partner Company"
+                                                    autocomplete="off" name="partCom" value="<?= $option[0]["partner_company"]?>">
+                                                <?php echo form_error('partCom'); ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label for="pay">Payment Categories</label>
+                                                <select name="pay" id="pay" class="form-control">
+                                                    <option value="">-- Select Payment Categories --</option>
+                                                    <?php foreach($payment as $data){?>
+                                                    <option <?php if($option[0]["id_payment"] == $data["id_payment"]):?>selected<?php endif ?> value="<?= $data["id_payment"]?>"><?= $data["payment_category"]?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                <?php echo form_error('pay'); ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label for="desc">Description</label>
+                                                <textarea name="desc" id="desc" class="form-control"><?= $option[0]["description"]?></textarea>
+                                                <?php echo form_error('desc'); ?>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -69,21 +88,21 @@
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="active" checked>
+                                                            id="gridRadios1" value="active" <?php if($option[0]["status"] == 'active'):?>checked<?php endif ?>>
                                                         Active
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="inactive">
+                                                            id="gridRadios1" value="inactive" <?php if($option[0]["status"] == 'inactive'):?>checked<?php endif ?>>
                                                         Inactive
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Add</button>
-                                        <a href="<?= base_url("partner/payment")?>" class="btn btn-danger">Cancel</a>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <a href="<?= base_url("partner/partneroption")?>" class="btn btn-danger">Cancel</a>
                                     </form>
 
                                 </div>

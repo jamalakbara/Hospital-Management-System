@@ -13,4 +13,12 @@ class M_dashboard extends CI_Model {
     public function getJumlahMedicine(){
         return $this->db->select('COUNT(medicine_id) AS jumlah_medicine')->get('medicine')->row()->jumlah_medicine;
     }
+
+    public function getJumlahPartner(){
+        return $this->db->select('COUNT(partner_id) AS jumlah_partner')->get('partner')->row()->jumlah_partner;
+    }
+
+    public function getJumlahAccountant(){
+        return $this->db->select('COUNT(acc_id) AS jumlah_acc')->get('accountant')->row()->jumlah_acc;
+    }
 }

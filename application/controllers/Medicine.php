@@ -64,8 +64,14 @@ class Medicine extends CI_Controller {
                         $this->load->view('medicine/add_medicine');
                         $this->load->view('footer');
                 } else {
-                        $this->m_medicine->simpan_medicine();
-                        redirect('medicine');
+                        $simpan = $this->m_medicine->simpan_medicine();
+                        if($simpan){
+                                $this->session->set_flashdata('success', true);
+                                redirect('medicine');
+                        }else{
+                                $this->session->set_flashdata('fail', true);
+                                redirect('medicine');
+                        }
                 }
         }
 

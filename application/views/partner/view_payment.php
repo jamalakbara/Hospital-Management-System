@@ -78,9 +78,9 @@
                                                         echo '<td class="text-center"><a href=""><i class="fa fa-ban"></i></a></td>';
                                                     }?>
                                                     
-                                                    <td class="text-center"><a href=""><i class="fa fa-edit"></i></a>
+                                                    <td class="text-center"><a href="<?= base_url("partner/editpayment/".$data["id_payment"])?>"><i class="fa fa-edit"></i></a>
                                                     </td>
-                                                    <td class="text-center"><a href=""><i class="fa fa-trash-o"></i></a>
+                                                    <td class="text-center"><a href="<?= base_url("partner/deletepayment/".$data["id_payment"])?>"><i class="fa fa-trash-o"></i></a>
                                                     </td>
                                                 </tr>
                                                 <?php } ?>

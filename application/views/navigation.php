@@ -8,7 +8,7 @@
     <title>HMS - Hospital Management System</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<?= base_url("assets/images/favicon.ico")?>">
+    <link rel="shortcut icon" href="<?= base_url("assets/images/hms_logo_PAZ_icon.ico")?>">
 
     <!-- Bootstrap CSS -->
     <link href="<?= base_url("assets/css/bootstrap.min.css")?>" rel="stylesheet" type="text/css" />
@@ -36,7 +36,7 @@
                     <li class="list-inline-item dropdown notif">
                         <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false">
-                            <img src="<?= base_url("assets/images/avatars/admin.png")?>" alt="Profile image" class="avatar-rounded">
+                            <img src="<?= base_url("assets/images/avatars/avatar8.png")?>" alt="Profile image" class="avatar-rounded">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->

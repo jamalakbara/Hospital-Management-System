@@ -57,17 +57,6 @@
 
                                     <form autocomplete="off" action="<?= base_url("patient/simpanCheck/".$id_pasien)?>" method="post">
                                         <div class="d-none"><input type="text" value="<?= $id_pasien?>" name="id_pasien"></div>
-                                        <!-- <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="doctor">Doctor</label>
-                                                <select id="doctor" class="form-control" name="doctor">
-                                                    <option value="">-- Select Doctor --</option>
-                                                    <option value="dr. Aldi">dr. Aldi</option>
-                                                    <option value="dr. Ajaw">dr. Ajaw</option>
-                                                </select>
-                                                 <?php echo form_error('gender'); ?>
-                                            </div>
-                                        </div> -->
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="symp">Sysmptomps</label>

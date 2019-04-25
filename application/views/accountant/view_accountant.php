@@ -9,14 +9,14 @@
     <link href="<?= base_url("assets/css/style.css")?>" rel="stylesheet" type="text/css" />
 
     <!-- BEGIN CSS for this page -->
-
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
     <!-- END CSS for this page -->
 
 </head>
 
 <body class="adminbody">
 
-    <div id="main">
 
         <div class="content-page">
 
@@ -24,8 +24,6 @@
             <div class="content">
 
                 <div class="container-fluid">
-
-
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
@@ -40,15 +38,61 @@
                     </div>
                     <!-- end row -->
 
+                    <?php 
+                        if($this->session->flashdata('success')){
+                            $this->load->view('alert_success');
+                        }
+                        if($this->session->flashdata('fail')){
+                            $this->load->view('alert_fail');
+                        }
+                    ?>
 
                     <div class="row">
-                        <div class="col-xl-12">
-                            Content here
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <a href="<?= base_url("accountant/addnew")?>" class="btn btn-primary btn-sm" role="button"><i
+                                            class="fa fa-fw fa fa-plus"></i>
+                                        Add New</a>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table id="example1" class="table table-bordered table-hover display">
+                                            <thead>
+                                                <tr>
+                                                    <th>Accountant ID</th>
+                                                    <th>Accountant Name</th>
+                                                    <th>Status</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach($accountant as $data){?>
+                                                <tr>
+                                                    <td><?= $data["acc_id"]?></td>
+                                                    <td><?= $data["acc_name"]?></td>
+                                                    <?php if($data["status"] == "active"){
+                                                        echo '<td class="text-center"><a href=""><i class="fa fa-check"></i></a></td>';
+                                                    }else{
+                                                        echo '<td class="text-center"><a href=""><i class="fa fa-ban"></i></a></td>';
+                                                    }?>
+                                                    
+                                                    <td class="text-center"><a href="<?= base_url("accountant/editaccountant/".$data["acc_id"])?>"><i class="fa fa-edit"></i></a>
+                                                    </td>
+                                                    <td class="text-center"><a href="<?= base_url("accountant/delete/".$data["acc_id"])?>"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div><!-- end card-->
                         </div>
                     </div>
-
-
-
                 </div>
                 <!-- END container-fluid -->
 
@@ -69,14 +113,21 @@
     <script src="<?= base_url("assets/js/fastclick.js")?>"></script>
     <script src="<?= base_url("assets/js/jquery.blockUI.js")?>"></script>
     <script src="<?= base_url("assets/js/jquery.nicescroll.js")?>"></script>
-    <script src="<?= base_url("assets/js/jquery.scrollTo.min.js")?>"></script>
-    <script src="<?= base_url("assets/plugins/switchery/switchery.min.js")?>"></script>
 
     <!-- App js -->
     <script src="<?= base_url("assets/js/pikeadmin.js")?>"></script>
 
     <!-- BEGIN Java Script for this page -->
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
+    <script>
+        // START CODE FOR BASIC DATA TABLE 
+        $(document).ready(function () {
+            $('#example1').DataTable();
+        });
+	// END CODE FOR BASIC DATA TABLE
+    </script>
     <!-- END Java Script for this page -->
 
 </body>

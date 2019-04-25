@@ -31,12 +31,12 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Add New Partner Option</h1>
+                                <h1 class="main-title float-left">Edit Partner Allotments</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
                                     <li class="breadcrumb-item">Partner Company</li>
-                                    <li class="breadcrumb-item">Partner Option</li>
-                                    <li class="breadcrumb-item active">Add New Partner Option</li>
+                                    <li class="breadcrumb-item">Partner Allotments</li>
+                                    <li class="breadcrumb-item active">Edit Partner Allotments</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -49,60 +49,60 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3 ">
                                 <div class="card-header">
-                                    <h3><i class="fa fa-check-square-o"></i> Add New</h3>
+                                    <h3><i class="fa fa-check-square-o"></i> Edit</h3>
                                 </div>
 
                                 <div class="card-body">
 
-                                    <form autocomplete="off" action="<?= base_url("partner/simpan")?>" method="post">
+                                    <form autocomplete="off" action="<?= base_url("partner/updateallot/".$allotment[0]["allotment_id"])?>" method="post">
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label for="comp">Partner Company</label>
-                                                <input type="text" class="form-control" id="comp" placeholder="Partner Company"
-                                                    autocomplete="off" name="partCom">
-                                                <?php echo form_error('partCom'); ?>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-12">
-                                                <label for="pay">Payment Categories</label>
-                                                <select name="pay" id="pay" class="form-control">
-                                                    <option value="">-- Select Payment Categories --</option>
-                                                    <?php foreach($payment as $data){?>
-                                                    <option value="<?= $data["id_payment"]?>"><?= $data["payment_category"]?></option>
+                                                <label for="patient">Patient</label>
+                                                <select name="patient" id="patient" class="form-control">
+                                                    <option value="">-- Select Patient --</option>
+                                                    <?php foreach($patient as $data){?>
+                                                    <option <?php if($allotment[0]["id_pasien"] == $data["id_pasien"]):?>selected<?php endif ?> value="<?= $data["id_pasien"]?>"><?= $data["first_name"]." ".$data["last_name"]?></option>
                                                     <?php } ?>
                                                 </select>
-                                                <?php echo form_error('pay'); ?>
+                                                <?php echo form_error('patient'); ?>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label for="desc">Description</label>
-                                                <textarea name="desc" id="desc" class="form-control"></textarea>
-                                                <?php echo form_error('desc'); ?>
+                                                <label for="partner">Partner</label>
+                                                <select name="partner" id="partner" class="form-control">
+                                                    <option value="">-- Select Partner Company --</option>
+                                                    <?php foreach($partner as $data){?>
+                                                    <option <?php if($allotment[0]["partner_id"] == $data["partner_id"]):?>selected<?php endif ?> value="<?= $data["partner_id"]?>"><?= $data["partner_company"]?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                <?php echo form_error('partner'); ?>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label id="stat">Status</label>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="active" checked>
-                                                        Active
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="inactive">
-                                                        Inactive
-                                                    </label>
-                                                </div>
+                                                <label for="card">Partner Card Number</label>
+                                                <input type="text" class="form-control" id="card" name="card" placeholder="Card Number" value="<?= $allotment[0]["cardnum"]?>">
+                                                <?php echo form_error('card'); ?>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Add</button>
-                                        <a href="<?= base_url("partner/partneroption")?>" class="btn btn-danger">Cancel</a>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label for="date">Allotment Date</label>
+                                                    <input type="text" class="form-control" id="date" name="date" value="<?= $allotment[0]["allot_date"]?>"/>
+                                                    <?php echo form_error('date'); ?>
+                                                    <script>
+                                                        $(function () {
+                                                            $('input[name="date"]').daterangepicker({
+                                                                singleDatePicker: true,
+                                                                showDropdowns: true
+                                                            });
+                                                        });
+                                                    </script>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <a href="<?= base_url("partner/allotment")?>" class="btn btn-danger">Cancel</a>
                                     </form>
 
                                 </div>

@@ -33,7 +33,7 @@
                             <div class="card-box noradius noborder bg-default">
                                 <i class="fa fa-male float-right text-white"></i>
                                 <h6 class="text-white text-uppercase m-b-20">Partner Company</h6>
-                                <h1 class="m-b-20 text-white counter">5</h1>
+                                <h1 class="m-b-20 text-white counter"><?= $jum_partner?></h1>
                                 <span class="text-white"></span>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                             <div class="card-box noradius noborder bg-success">
                                 <i class="fa fa-dollar float-right text-white"></i>
                                 <h6 class="text-white text-uppercase m-b-20">Accountant</h6>
-                                <h1 class="m-b-20 text-white counter">5</h1>
+                                <h1 class="m-b-20 text-white counter"><?= $jum_acc?></h1>
                                 <span class="text-white"></span>
                             </div>
                         </div>

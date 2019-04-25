@@ -31,12 +31,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Add New Payment Categoies</h1>
+                                <h1 class="main-title float-left">Edit Accountant</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
-                                    <li class="breadcrumb-item">Partner Company</li>
-                                    <li class="breadcrumb-item">Payment Categoies</li>
-                                    <li class="breadcrumb-item active">Add New Payment Categoies</li>
+                                    <li class="breadcrumb-item">Accountants</li>
+                                    <li class="breadcrumb-item active">Edit Accountants</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -46,21 +45,28 @@
 
 
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-6-6">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3 ">
                                 <div class="card-header">
-                                    <h3><i class="fa fa-check-square-o"></i> Add New</h3>
+                                    <h3><i class="fa fa-check-square-o"></i> Edit</h3>
                                 </div>
 
                                 <div class="card-body">
 
-                                    <form autocomplete="off" action="<?= base_url("partner/simpanpayment")?>" method="post">
+                                    <form autocomplete="off" action="<?= base_url("accountant/edit/".$accountant[0]["acc_id"])?>" method="post">
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label for="payment">Payment Category</label>
-                                                <input type="text" class="form-control" id="payment" placeholder="Payment Category"
-                                                    autocomplete="off" name="payment">
-                                                <?php echo form_error('payment'); ?>
+                                                <label for="id">Accountant ID</label>
+                                                <input class="form-control" type="text" name="id" id="id" readonly value="<?= $accountant[0]["acc_id"]?>">
+                                                <?php echo form_error('id'); ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label for="accName">Accountant Name</label>
+                                                <input type="text" class="form-control" id="accName" placeholder="Accountant Name"
+                                                    autocomplete="off" name="accName" value="<?= $accountant[0]["acc_name"]?>">
+                                                <?php echo form_error('accName'); ?>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -69,21 +75,21 @@
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="active" checked>
+                                                            id="gridRadios1" value="active" <?php if($accountant[0]["status"] == 'active'):?>checked<?php endif ?>>
                                                         Active
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="inactive">
+                                                            id="gridRadios1" value="inactive" <?php if($accountant[0]["status"] == 'inactive'):?>checked<?php endif ?>>
                                                         Inactive
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Add</button>
-                                        <a href="<?= base_url("partner/payment")?>" class="btn btn-danger">Cancel</a>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <a href="<?= base_url("accountant")?>" class="btn btn-danger">Cancel</a>
                                     </form>
 
                                 </div>

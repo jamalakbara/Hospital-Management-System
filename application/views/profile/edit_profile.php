@@ -111,7 +111,7 @@
                     <div class="form-group">
                       <label for="pass1">Password<span class="text-danger">*</span></label>
                       <input name="pass" id="pass1" type="password" placeholder="Password" required class="form-control" value="<?= $user[0]["password"]?>">
-                      <?php echo form_error('passwird'); ?>
+                      <?php echo form_error('password'); ?>
                     </div>
 
                     <div class="form-group text-right m-b-0">
@@ -129,7 +129,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
               <div class="card mb-3">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                  <img src="<?= base_url("")?>assets/images/avatars/admin.jpg" alt="">
+                  <img src="<?= base_url("")?>assets/images/avatars/avatar8.png" alt="">
                   <h3><?= $user[0]["first_name"].' '.$user[0]['last_name']?></h3>
                   <h5 class="text-secondary text-capitalize"><?= $user[0]["role"]?></h5>
                 </div>

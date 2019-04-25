@@ -94,7 +94,7 @@
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" name="gridRadios"
-                                                            id="gridRadios1" value="Inactive">
+                                                            id="gridRadios1" value="inactive">
                                                         Inactive
                                                     </label>
                                                 </div>

@@ -100,8 +100,14 @@ class Patient extends CI_Controller {
                         $this->load->view('patient/add_patient');
                         $this->load->view('footer');
                 } else {
-                        $this->m_patient->simpan_pasien();
-                        redirect('patient');
+                        $simpan = $this->m_patient->simpan_pasien();
+                        if($simpan){
+                                $this->session->set_flashdata('success', true);
+                                redirect('patient');
+                        }else{
+                                $this->session->set_flashdata('fail', true);
+                                redirect('patient');
+                        }
                 }
         }
 
@@ -185,8 +191,14 @@ class Patient extends CI_Controller {
                         $this->load->view('patient/add_checkup');
                         $this->load->view('footer');
                 } else {
-                        $this->m_patient->simpan_check();
-                        redirect('patient/detail/'.$id);
+                        $simpan = $this->m_patient->simpan_check();
+                        if($simpan){
+                                $this->session->set_flashdata('success', true);
+                                redirect('patient/detail/'.$id);
+                        }else{
+                                $this->session->set_flashdata('fail', true);
+                                redirect('patient/detail/'.$id);
+                        }
                 }
         }
 

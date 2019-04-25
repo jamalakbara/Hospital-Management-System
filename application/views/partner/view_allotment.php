@@ -27,11 +27,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="breadcrumb-holder">
-                                <h1 class="main-title float-left">Partner Option</h1>
+                                <h1 class="main-title float-left">Partner Allotments</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
                                     <li class="breadcrumb-item">Partner Company</li>
-                                    <li class="breadcrumb-item active">Partner Option</li>
+                                    <li class="breadcrumb-item active">Partner Allotments</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -52,7 +52,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card mb-3">
                                 <div class="card-header">
-                                    <a href="<?= base_url("partner/addnew")?>" class="btn btn-primary btn-sm" role="button"><i
+                                    <a href="<?= base_url("partner/addnewallot")?>" class="btn btn-primary btn-sm" role="button"><i
                                             class="fa fa-fw fa fa-plus"></i>
                                         Add New</a>
                                 </div>
@@ -62,27 +62,26 @@
                                         <table id="example1" class="table table-bordered table-hover display">
                                             <thead>
                                                 <tr>
-                                                    <th>Partner Company</th>
-                                                    <th>Payment Category</th>
-                                                    <th>Status</th>
+                                                    <th>Patient</th>
+                                                    <th>Partner</th>
+                                                    <th>Partner Card Number</th>
+                                                    <th>Payment Categories</th>
+                                                    <th>Allotment Date</th>
                                                     <th>Edit</th>
                                                     <th>Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach($option as $data){?>
+                                                <?php foreach($allotment as $data){?>
                                                 <tr>
+                                                    <td><?= $data["first_name"]." ".$data["last_name"]?></td>
                                                     <td><?= $data["partner_company"]?></td>
+                                                    <td><?= $data["cardnum"]?></td>
                                                     <td><?= $data["payment_category"]?></td>
-                                                    <?php if($data["status"] == "active"){
-                                                        echo '<td class="text-center"><a href=""><i class="fa fa-check"></i></a></td>';
-                                                    }else{
-                                                        echo '<td class="text-center"><a href=""><i class="fa fa-ban"></i></a></td>';
-                                                    }?>
-                                                    
-                                                    <td class="text-center"><a href="<?= base_url("partner/editoption/".$data["partner_id"])?>"><i class="fa fa-edit"></i></a>
+                                                    <td><?= $data["allot_date"]?></td>
+                                                    <td class="text-center"><a href="<?= base_url("partner/editallotment/".$data["allotment_id"])?>"><i class="fa fa-edit"></i></a>
                                                     </td>
-                                                    <td class="text-center"><a href="<?= base_url("partner/deleteoption/".$data["partner_id"])?>"><i class="fa fa-trash-o"></i></a>
+                                                    <td class="text-center"><a href="<?= base_url("partner/deleteallotment/".$data["allotment_id"])?>"><i class="fa fa-trash-o"></i></a>
                                                     </td>
                                                 </tr>
                                                 <?php } ?>
